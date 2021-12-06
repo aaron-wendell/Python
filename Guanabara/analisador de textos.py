@@ -1,0 +1,6 @@
+texto = input('O que você está pensando? ').strip()
+print(texto.title())
+print(texto.lower())
+print('Letras:', len(texto) - texto.count(' '))
+texto = texto.split()
+print('Letras na primeira letra (',texto[0],'):', len(texto[0]))
