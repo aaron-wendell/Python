@@ -30,6 +30,19 @@ def leiaint(msg='Digite um numero inteiro: '):
             return 0
         return num
 
+def leiafloat(msg='Digite um numero real: '):
+    print('-'*30)
+    while True:
+        try:
+            num = float(input(msg))
+        except (ValueError, TypeError):
+            print('\033[31mErro. Digite um numero inteiro valido.\033[m')
+            continue
+        except (KeyboardInterrupt):
+            print('\033[31mErro. O usuario decidiu nao digitar esse valor.\033[m')
+            return 0
+        return num
+
 def arquivoexiste(arquivo):
     try:
         a = open(arquivo, 'rt')
@@ -76,3 +89,13 @@ def cadastrar(arquivo, nome='<desconhecido>', idade=0):
         else:
             print(f'Novo registro de {nome} adicionado')
             a.close()
+
+def matematica(txt='Digite uma operacao matematica\n(+: Mais)\n(-: Menos)\n(x: Multiplicacao)\n(/: Divisao)\n(^: Potencia)\n'):
+    operacoes = list('^+-x/')
+    while True:
+        op = input(txt).lower()
+        if op[0] in operacoes:
+            break
+        else:
+            print('\033[31mOperação invalida!\033[m')
+    return op[0]
